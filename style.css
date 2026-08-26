@@ -1,152 +1,282 @@
-/* Reset básico */
+/* Importação de fonte moderna do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+/* Reset e Variáveis de Cores */
+:root {
+  --primary: #ff3e3e;
+  --primary-hover: #e03232;
+  --bg-dark: #0f0f11;
+  --card-bg: #18181c;
+  --card-border: #282830;
+  --text-light: #f5f5f7;
+  --text-muted: #a1a1aa;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #121212;
-  color: #ffffff;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
   line-height: 1.6;
 }
 
-/* Header e Navegação */
+/* Header com Efeito Glassmorphism (Vidro Fosco) */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  background-color: #1e1e1e;
+  padding: 18px 8%;
+  background: rgba(15, 15, 17, 0.85);
+  backdrop-filter: blur(10px);
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid var(--card-border);
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
 .logo span {
-  color: #ff3e3e;
+  color: var(--primary);
 }
 
 nav ul {
   display: flex;
   list-style: none;
-}
-
-nav ul li {
-  margin-left: 20px;
+  gap: 30px;
 }
 
 nav ul li a {
-  color: #ffffff;
+  color: var(--text-light);
   text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #ff3e3e;
+  color: var(--primary);
 }
 
-/* Banner Principal */
+/* Hero Section (Banner) */
 .hero {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), #333;
-  padding-top: 60px;
+  background: linear-gradient(180deg, rgba(15,15,17,0.6) 0%, var(--bg-dark) 100%),
+              radial-gradient(circle at center, rgba(255,62,62,0.15) 0%, transparent 70%);
+  padding: 0 20px;
 }
 
 .hero h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  background: linear-gradient(180deg, #fff 0%, #a1a1aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+.hero p {
+  color: var(--text-muted);
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+
+/* Botões Modernos */
 .btn {
   display: inline-block;
-  padding: 12px 24px;
-  background-color: #ff3e3e;
+  padding: 14px 32px;
+  background-color: var(--primary);
   color: #fff;
   text-decoration: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 15px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 62, 62, 0.3);
 }
 
 .btn:hover {
-  background-color: #d32f2f;
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(255, 62, 62, 0.5);
 }
 
 /* Seções Gerais */
 .secao {
-  padding: 80px 20px;
+  padding: 100px 8% 60px;
   text-align: center;
 }
 
 .secao h2 {
-  font-size: 32px;
-  margin-bottom: 40px;
-  color: #ff3e3e;
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
 }
 
-/* Grid de Cards */
+.secao h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+/* Grid & Cards (Modalidades e Planos) */
 .grid-modalidades, .grid-planos {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .card, .plano-card {
-  background-color: #1e1e1e;
-  padding: 30px;
-  border-radius: 8px;
-  width: 280px;
-  border: 1px solid #333;
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  transition: all 0.3s ease;
+}
+
+.card:hover, .plano-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 62, 62, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.card h3, .plano-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 14px;
 }
 
 .plano-card.destaque {
-  border: 2px solid #ff3e3e;
-  transform: scale(1.05);
+  border: 2px solid var(--primary);
+  background: linear-gradient(180deg, #1f1a1c 0%, var(--card-bg) 100%);
+  position: relative;
 }
 
 .preco {
-  font-size: 24px;
-  font-weight: bold;
-  color: #ff3e3e;
-  margin: 15px 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary);
+  margin: 20px 0;
 }
 
-/* Calculadora IMC */
+/* Seção Calculadora IMC */
+.imc-section {
+  background-color: var(--card-bg);
+  border-y: 1px solid var(--card-border);
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+.imc-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
 .imc-form input {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-  border: none;
-  width: 150px;
+  padding: 14px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: var(--bg-dark);
+  color: #fff;
+  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
 }
 
-#resultado-imc {
-  margin-top: 15px;
-  font-size: 18px;
+/* Formulário de Contato */
+.contato-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.contato-form input,
+.contato-form textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background-color: var(--card-bg);
+  color: #fff;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus,
+.imc-form input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.erro {
+  color: var(--primary);
+  font-size: 13px;
+  margin-top: 5px;
+  min-height: 18px;
+}
+
+.sucesso {
+  color: #4CAF50;
+  font-size: 16px;
   font-weight: bold;
+  margin-top: 10px;
 }
 
-/* Rodapé */
+/* Footer */
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: #1e1e1e;
-  border-top: 1px solid #333;
+  padding: 30px 20px;
+  background-color: var(--bg-dark);
+  border-top: 1px solid var(--card-border);
+  color: var(--text-muted);
+  font-size: 14px;
 }
