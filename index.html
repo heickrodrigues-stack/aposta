@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academia FitLife</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="logo">Fit<span>Life</span></div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#modalidades">Modalidades</a></li>
+        <li><a href="#planos">Planos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Banner Principal -->
+  <section id="inicio" class="hero">
+    <div class="hero-text">
+      <h1>Transforme seu corpo e sua mente</h1>
+      <p>A melhor estrutura para alcançar seus objetivos fitness.</p>
+      <a href="#planos" class="btn">Matricule-se Já</a>
+    </div>
+  </section>
+
+  <!-- Modalidades -->
+  <section id="modalidades" class="secao">
+    <h2>Nossas Modalidades</h2>
+    <div class="grid-modalidades">
+      <div class="card">
+        <h3>Musculação</h3>
+        <p>Equipamentos modernos para treino de força e hipertrofia.</p>
+      </div>
+      <div class="card">
+        <h3>Crossfit</h3>
+        <p>Treino funcional de alta intensidade para desafiar seus limites.</p>
+      </div>
+      <div class="card">
+        <h3>FitDance</h3>
+        <p>Aulas dinâmicas para queimar calorias se divertindo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculadora de IMC (JavaScript) -->
+  <section class="secao imc-section">
+    <h2>Calcule seu IMC</h2>
+    <div class="imc-form">
+      <input type="number" id="peso" placeholder="Peso (kg)" step="0.1">
+      <input type="number" id="altura" placeholder="Altura (ex: 1.75)" step="0.01">
+      <button onclick="calcularIMC()">Calcular</button>
+      <div id="resultado-imc"></div>
+    </div>
+  </section>
+
+  <!-- Planos -->
+  <section id="planos" class="secao">
+    <h2>Planos</h2>
+    <div class="grid-planos">
+      <div class="plano-card">
+        <h3>Mensal</h3>
+        <p class="preco">R$ 99/mês</p>
+        <p>Acesso total à musculação.</p>
+        <button class="btn">Assinar</button>
+      </div>
+      <div class="plano-card destaque">
+        <h3>VIP Anual</h3>
+        <p class="preco">R$ 79/mês</p>
+        <p>Acesso total + aulas de dança e crossfit.</p>
+        <button class="btn">Assinar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer id="contato">
+    <p>&copy; 2026 Academia FitLife - Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
